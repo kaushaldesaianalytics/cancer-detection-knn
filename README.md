@@ -3,7 +3,7 @@ K-Nearest Neighbors Classification
 Can two gene expression measurements reliably predict cancer presence? This project applies K-Nearest Neighbors classification to a gene expression dataset, progressing from a naive k=1 baseline through cross-validated hyperparameter tuning to identify the optimal neighborhood size.
 
 Overview
-KNN is a distance-based algorithm that classifies a new observation by majority vote among its k nearest training neighbors. Because it relies on Euclidean distance, feature scaling is critical — unscaled features with larger ranges will dominate the distance calculation regardless of their predictive value.
+KNN is a distance-based algorithm that classifies a new observation by majority vote among its k nearest training neighbors. Because it relies on Euclidean distance, feature scaling is critical and unscaled features with larger ranges will dominate the distance calculation regardless of their predictive value.
 This project demonstrates the full KNN workflow: exploratory visualization, proper scaling inside a Pipeline to prevent data leakage during cross-validation, elbow method analysis, and GridSearchCV to select the optimal k value.
 
 Dataset
@@ -30,7 +30,7 @@ The tuned model improves generalization over the k=1 baseline by reducing varian
 
 Key Concepts
 Curse of Dimensionality: KNN degrades in high-dimensional spaces as distances become less meaningful. This dataset's two-feature structure keeps the algorithm effective.
-Pipeline for Leak-Free Cross-Validation: Fitting the scaler inside the pipeline ensures the test fold is never seen during scaling — a critical detail when using GridSearchCV.
+Pipeline for Leak-Free Cross-Validation: Fitting the scaler inside the pipeline ensures the test fold is never seen during scaling which is a critical detail when using GridSearchCV.
 Elbow Method vs. GridSearchCV: Both approaches converge on k=14, validating each other. The elbow method gives a quick visual heuristic; GridSearchCV provides a rigorous cross-validated selection.
 
 Stack
